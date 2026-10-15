@@ -1,0 +1,6 @@
+document.addEventListener('DOMContentLoaded',()=>{
+ const els=document.querySelectorAll('.reveal');
+ if('IntersectionObserver' in window){const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.10});els.forEach(el=>io.observe(el));}else els.forEach(el=>el.classList.add('is-visible'));
+ document.querySelectorAll('[data-toast]').forEach(btn=>btn.addEventListener('click',()=>{const target=document.getElementById('uiLiveToast');if(!target||!window.bootstrap)return;target.querySelector('.toast-body').textContent='Has seleccionado: '+btn.dataset.toast+'. Este es un botón demostrativo.';bootstrap.Toast.getOrCreateInstance(target).show()}));
+ const copy=document.getElementById('copyAccount');if(copy)copy.addEventListener('click',async()=>{try{await navigator.clipboard.writeText('2209087863');copy.innerHTML='<i class="fa-solid fa-check me-2"></i>Copiado';setTimeout(()=>copy.innerHTML='<i class="fa-regular fa-copy me-2"></i>Copiar número',2000)}catch(e){copy.textContent='2209087863'}});
+});

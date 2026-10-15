@@ -1,0 +1,36 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Para usar este sitio, crea manualmente el documento inicial del admin
+    // authorizedEmails/admin@dominio.com => {role:"admin", active:true}
+    function signedEmail() {
+      return request.auth != null
+        && request.auth.token.email_verified == true
+        && request.auth.token.email is string;
+    }
+    function account(email) {
+      return signedEmail()
+        && exists(/databases/$(database)/documents/authorizedEmails/$(email))
+        && get(/databases/$(database)/documents/authorizedEmails/$(email)).data.active == true;
+    }
+    function admin() {
+      return signedEmail()
+        && account(request.auth.token.email)
+        && get(/databases/$(database)/documents/authorizedEmails/$(request.auth.token.email)).data.role == 'admin';
+    }
+    match /authorizedEmails/{email} {
+      // Cada usuario solo puede consultar su propia autorización.
+      // El administrador puede ver el directorio completo.
+      allow get: if admin() || (signedEmail() && request.auth.token.email == email);
+      allow list: if admin();
+      // Nadie puede crearse una cuenta de administrador desde el navegador.
+      allow create: if admin() && request.resource.data.keys().hasOnly(['role','active'])
+        && request.resource.data.role == 'member'
+        && request.resource.data.active == true;
+      allow update: if false;
+      allow delete: if admin() && resource.data.role == 'member';
+    }
+    // Denegación predeterminada: agrega reglas explícitas si creas colecciones nuevas.
+    match /{document=**} { allow read, write: if false; }
+  }
+}

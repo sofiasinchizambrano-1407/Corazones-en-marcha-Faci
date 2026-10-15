@@ -1,0 +1,367 @@
+/* =========================
+GENERAL
+========================= */
+
+body{
+    background:#f7f4f2;
+    font-family:'Poppins', sans-serif;
+    color:#2b2b2b;
+}
+
+/* =========================
+TITULOS
+========================= */
+
+.section-badge{
+    display:inline-block;
+    background:linear-gradient(90deg,#7b1126,#b91c3b);
+    color:white;
+    padding:8px 18px;
+    border-radius:40px;
+    font-size:.85rem;
+    font-weight:600;
+    margin-bottom:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+
+h2{
+    font-weight:800;
+    color:#631122;
+}
+
+.text-secondary{
+    color:#777 !important;
+}
+/* ========== ESTILOS PARA VIDEOS ========== */
+.video-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  transition: 0.3s;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  height: 100%;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 35px rgba(109, 16, 33, 0.15);
+}
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* Ratio 16:9 */
+  height: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-large {
+  padding-bottom: 56.25%;
+}
+
+.video-title {
+  padding: 0.9rem 1rem;
+  background: white;
+  text-align: center;
+  font-weight: 700;
+  color: #6d1021;
+  border-top: 1px solid #f0e0d8;
+  font-size: 0.95rem;
+}
+
+/* ========== ESTILOS PARA FOTOS ========== */
+.photo-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.3s;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  height: 100%;
+}
+
+.photo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 28px rgba(109, 16, 33, 0.12);
+}
+
+.photo-img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  transition: 0.3s;
+  display: block;
+}
+
+.photo-card:hover .photo-img {
+  transform: scale(1.03);
+}
+
+.photo-caption {
+  padding: 0.8rem;
+  text-align: center;
+  font-weight: 600;
+  color: #6d1021;
+  background: white;
+  border-top: 1px solid #f0e0d8;
+  font-size: 0.9rem;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  .video-title {
+    font-size: 0.8rem;
+    padding: 0.7rem;
+  }
+  
+  .photo-img {
+    height: 180px;
+  }
+  
+  .photo-caption {
+    font-size: 0.8rem;
+    padding: 0.6rem;
+  }
+}
+
+/* =========================
+CONTACTO
+========================= */
+.contact-card {
+  background: white;
+  border-radius: 32px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 35px -12px rgba(109, 16, 33, 0.1);
+  text-align: center;
+}
+
+.social-links {
+  margin-top: 2rem;
+}
+
+.social-icons-group {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.social-icon {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 1.8rem;
+  border-radius: 60px;
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+  min-width: 110px;
+}
+
+.social-icon i {
+  font-size: 1.8rem;
+}
+
+.social-icon span {
+  font-size: 0.85rem;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px);
+  filter: brightness(1.05);
+  color: white;
+}
+
+.social-icon.facebook {
+  background: #1877f2;
+}
+
+.social-icon.instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.social-icon.tiktok {
+  background: #000;
+}
+
+.social-icon.gmail {
+  background: #ea4335;
+}
+
+/* Donaciones */
+.donation-box {
+  background: linear-gradient(135deg, #fff7f0, #fff0e6);
+  border-radius: 32px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+.donation-box h3 {
+  color: #6d1021;
+}
+
+.account-box {
+  background: white;
+  border-radius: 24px;
+  padding: 1.5rem;
+  max-width: 320px;
+  margin: 0 auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0e0d8;
+  line-height: 1.8;
+}
+
+.account-number {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #6d1021;
+  letter-spacing: 1px;
+}
+
+/* Footer redes */
+.social-icons-footer {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .social-icons-footer {
+    justify-content: flex-start;
+  }
+}
+
+.social-icons-footer a {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.social-icons-footer a:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.05);
+}
+
+/* Email link */
+.email-link {
+  color: white;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.email-link:hover {
+  color: #ffdd99;
+  text-decoration: underline;
+}
+
+/* Botón ACI */
+.btn-aci {
+  display: inline-flex;
+  align-items: center;
+  background: #6d1021;
+  color: white;
+  padding: 0.7rem 1.3rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.btn-aci:hover {
+  background: #8f1a2e;
+  transform: translateY(-2px);
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-card {
+    padding: 1.5rem;
+  }
+  
+  .social-icon {
+    padding: 0.8rem 1.2rem;
+    min-width: 90px;
+  }
+  
+  .social-icon i {
+    font-size: 1.4rem;
+  }
+  
+  .social-icon span {
+    font-size: 0.7rem;
+  }
+  
+  .account-number {
+    font-size: 1.1rem;
+  }
+  
+  .donation-box {
+    padding: 1.5rem;
+  }
+  
+  .footer .col-md-4 {
+    text-align: center !important;
+    margin-bottom: 1.5rem;
+  }
+  
+  .social-icons-footer {
+    justify-content: center;
+  }
+}/* =========================
+DONACIONES
+========================= */
+
+.donation-box{
+    background:linear-gradient(135deg,#7b1126,#b91c3b);
+    color:white;
+    padding:35px;
+    border-radius:25px;
+    text-align:center;
+    margin-top:40px;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+
+.donation-box h3{
+    font-weight:800;
+}
+
+.account-box{
+    background:white;
+    color:#7b1126;
+    border-radius:18px;
+    padding:20px;
+    margin-top:20px;
+    font-weight:700;
+}
+
+/* =========================
+RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    .photo-img{
+        height:220px;
+    }
+
+}
+
